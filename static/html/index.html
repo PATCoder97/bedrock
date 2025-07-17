@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head><title>Frontend</title></head>
+<body>
+  <h1>Users</h1>
+  <ul id="users"></ul>
+
+  <script>
+    fetch('/api/users')
+      .then(res => res.json())
+      .then(data => {
+        document.getElementById("users").innerHTML =
+          data.map(u => `<li>${u.name}</li>`).join('');
+      });
+  </script>
+</body>
+</html>
